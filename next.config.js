@@ -16,7 +16,7 @@ const nextConfiguration = {
     name: 'Timmycoin',
     title: 'Timmycoin Explorer',
     favicon: '/static/favicon.png',
-    logo: '/static/images/logo.svg',
+    logo: '/static/images/how.png',
     symbol: 'TMY',
     coinUnits: 100000000,
     walletUrl: 'https://wallet.timmycoin.net',
