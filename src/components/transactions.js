@@ -132,17 +132,9 @@ export class TransactionPool extends Component {
       }
     ];
 
-    const total_amount = sum(_.map(transactions, (m) => {
-      return m.amount_out;
-    }));
-
-    const total_fee = sum(_.map(transactions, (m) => {
-      return m.fee;
-    }));
-
-    const total_sizes = sum(_.map(transactions, (m) => {
-      return m.size;
-    }));
+    const total_amount = sum(_.map(transactions, (t) => t.amount_out ));
+    const total_fee = sum(_.map(transactions, (t) => t.fee ));
+    const total_sizes = sum(_.map(transactions, (t) => t.size ));
 
     return (
       <div className="container mt-3">
