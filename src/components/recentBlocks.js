@@ -3,7 +3,7 @@ import _ from 'underscore';
 import moment from 'moment';
 
 import { Api } from '../utils/api';
-import { formatTimestamp, formatBytes } from '../utils/shortcuts';
+import { formatTimestamp, formatBytes, getReadableDifficultyString } from '../utils/shortcuts';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 export default class extends Component {
@@ -19,13 +19,20 @@ export default class extends Component {
   render() {
 
     const columns = [
-      { dataField: 'height', text: 'Height', headerStyle: { width: '80px' } },
+      {
+        dataField: 'height',
+        text: 'Height',
+        headerStyle: { width: '80px' },
+        formatter(height) {
+          return <b>{height}</b>
+        }
+      },
       {
         dataField: 'timestamp',
         text: 'Date & time',
-        headerStyle: { width: '300px' },
+        headerStyle: { width: '250px' },
         formatter(timestamp) {
-          return formatTimestamp(timestamp);
+          return <i>{formatTimestamp(timestamp)}</i>
         }
       },
       {
@@ -44,7 +51,15 @@ export default class extends Component {
           return <a href={`/hash/${hash}`}>{hash}</a>
         }
       },
-      { dataField: 'difficulty', text: 'Difficulty', headerStyle: { width: '90px' } },
+      {
+        dataField: 'difficulty',
+        text: 'Difficulty',
+        headerStyle: { width: '90px' },
+        formatter(difficulty) {
+          return getReadableDifficultyString(difficulty);
+        }
+      },
+
       { dataField: 'tx_count', text: 'Txs', headerStyle: { width: '50px' } }
     ];
 
