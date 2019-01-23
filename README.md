@@ -4,7 +4,7 @@ explorer blockchain for nex.js
 
 ### Started Development
 
-    export NODE=http://node-1.timmycoin.net:1303
+    export NODE=http://timmy-1.timmycoin.net:1303
     npm run dev
 
 ### Settings
