@@ -69,3 +69,23 @@ header {
     }
   }
 }
+
+.transaction-header {
+  margin: 0 15px;
+  margin-bottom: 20px;
+
+  button {
+    margin: 0 10px;
+    background-color: #F0CB1E;
+    border-color: #e6c31e;
+
+    &:hover {
+      background-color: #e6c31e;
+      border-color: #F0CB1E;
+    }
+
+    .badge {
+      background-color: white;
+    }
+  }
+}
