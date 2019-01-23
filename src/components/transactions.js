@@ -95,7 +95,7 @@ export class TransactionPool extends Component {
         text: 'Date & time',
         headerStyle: { width: '175px' },
         formatter(receiveTime) {
-          return formatTimestamp(receiveTime, false);
+          return <i>{formatTimestamp(receiveTime, false)}</i>
         }
       },
       {
