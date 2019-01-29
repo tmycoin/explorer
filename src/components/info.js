@@ -57,7 +57,7 @@ export default class extends Component {
             </div>
           </div>
 
-          <div className="col-12 scol-lg-6">
+          <div className="col-12 col-lg-6">
             <div className="card">
               <div className="card-header">
                 <h3>Last Block Header</h3>

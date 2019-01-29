@@ -1,12 +1,17 @@
 import getConfig from 'next/config';
 import moment from 'moment';
+import _ from 'underscore';
 
 // get config
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig();
 
-export const formatTimestamp = (timestamp) => {
+export const formatTimestamp = (timestamp, from=true) => {
   const date = moment(timestamp*1000);
-  return `${date.format('MM/DD/YYYY, hh:mm:ss')} ${date.fromNow()}`
+  if (from) {
+    return `${date.format('MM/DD/YYYY - HH:mm')} ${date.fromNow()}`
+  }
+
+  return date.format('MM/DD/YYYY - HH:mm');
 }
 
 export const formatBytes = (a, b) => {
@@ -32,4 +37,8 @@ export const getReadableCoins = (coins, digits, withoutSymbol) => {
 export const getReadableCoinsServer = (coins) => {
     var amount = (parseInt(coins || 0) / serverRuntimeConfig.coinUnits).toFixed(serverRuntimeConfig.coinUnits.toString().length - 1);
     return amount;
+}
+
+export const sum = (list) => {
+  return _.reduce(list, (memo, num) => memo + num, 0);
 }
